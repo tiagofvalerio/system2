@@ -27,7 +27,6 @@
                  [com.fasterxml.jackson.core/jackson-core "2.7.9"]
                  [com.fasterxml.jackson.core/jackson-annotations "2.7.9"]
                  [clj-http "3.4.1"]
-                 [org.flatland/protobuf "0.8.2"]
                  [com.novemberain/langohr "3.6.1"]]
 
   :main ^{:skip-aot true} system2.server
