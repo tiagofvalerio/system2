@@ -61,5 +61,13 @@
                            :ragtime-db-spec "jdbc:postgresql://localhost:5432/system2-test?user=postgres&password=postgres"
                            :reload-resources "true"
                            :kraken-broker-url "amqp://localhost"}}
+             :integration-test {:dependencies [[io.pedestal/pedestal.service-tools "0.5.2"]]
+                                :resource-paths ["src/resources"]
+                                :env {:database-user "postgres"
+                                      :database-password "postgres"
+                                      :database-name "system2"
+                                      :ragtime-db-spec "jdbc:postgresql://localhost:5432/system2?user=postgres&password=postgres"
+                                      :reload-resources "true"
+                                      :kraken-broker-url "amqp://localhost"}}
              :uberjar {:aot [system2.server]
                        :uberjar-name "system2.jar"}})
