@@ -6,4 +6,4 @@
                      :user (get env :database-user "postgres")
                      :password (get env :database-password "postgres")
                      :host (get env :database-host "localhost")
-                     :port 5432}))
+                     :port (get env :database-port "5432")}))
