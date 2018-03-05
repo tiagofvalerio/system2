@@ -1,5 +1,5 @@
 FROM clojure
-RUN pwd
+RUN pwd && ls
 RUN cd system2
 RUN lein with-profile integration-test migrate
 RUN lein uberjar
