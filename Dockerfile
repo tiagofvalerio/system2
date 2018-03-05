@@ -1,11 +1,12 @@
-FROM clojure
-RUN mkdir system2
+FROM clojure as system2build
+WORKDIR /opt
 RUN curl -sSL -H 'Accept: application/vnd.github.v3.raw' https://api.github.com/repos/tiagofvalerio/system2/tarball/master | tar zx --strip-components 1 -C system2
-RUN cd system2 && lein uberjar && cd ../
+RUN cd system2 && lein uberjar
+
+
+FROM openjdk:jre-alpine
 RUN pwd && ls
-RUN echo "system2: " && ls system2
-RUN echo "target: " && ls target
-ADD system2/target/system2.jar /opt/system2/
-WORKDIR "/opt/system2/"
+WORKDIR /opt/system2
+COPY --from=system2build /opt/system2/target/system2.jar .
 CMD ["java","-jar","system2.jar"]
 EXPOSE 8080
