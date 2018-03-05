@@ -4,6 +4,6 @@
 
 (defdb db (postgres {:db (get env :database-name "system2")
                      :user (get env :database-user "postgres")
-                     :password (get env :database-password "postgres")
-                     :host (get env :database-host "localhost")
+                     :password (get env :database-password "")
+                     :host (get env :database-host "postgres")
                      :port (get env :database-port "5432")}))
