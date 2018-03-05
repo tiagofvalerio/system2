@@ -1,7 +1,7 @@
 FROM clojure as system2build
-WORKDIR /opt
-RUN curl -sSL -H 'Accept: application/vnd.github.v3.raw' https://api.github.com/repos/tiagofvalerio/system2/tarball/master | tar zx --strip-components 1 -C system2
-RUN cd system2 && lein uberjar
+WORKDIR /opt/system2
+RUN curl -sSL -H 'Accept: application/vnd.github.v3.raw' https://api.github.com/repos/tiagofvalerio/system2/tarball/master | tar zx --strip-components 1
+RUN lein uberjar
 
 
 FROM openjdk:jre-alpine
