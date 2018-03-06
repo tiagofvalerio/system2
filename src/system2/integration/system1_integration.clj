@@ -18,6 +18,3 @@
     (println (format "[main] Connected. Channel id: %d" (.getChannelNumber ch)))
     (lq/declare ch qname {:exclusive false :auto-delete true})
     (lb/publish ch default-exchange-name qname message {:content-type "text/plain" :type "test"})))
-
-
-(get env :database-host "postgres")
